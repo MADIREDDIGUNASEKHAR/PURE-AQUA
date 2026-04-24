@@ -29,7 +29,7 @@ export default function Navbar({ theme = "dark", onToggleTheme }) {
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollTo("home")}>
           <div className="relative">
             <div className="w-10 h-10 rounded-full border-2 border-aqua-400 flex items-center justify-center animate-pulse2">
-              <span className="font-display font-black text-aqua-300 text-sm">RK</span>
+              <span className="font-display font-black text-aqua-300 text-sm">RY</span>
             </div>
             <div className="absolute -inset-1 rounded-full border border-aqua-400/30 animate-ping" style={{ animationDuration: "3s" }}></div>
           </div>

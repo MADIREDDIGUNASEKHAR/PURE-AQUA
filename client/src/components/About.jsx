@@ -52,7 +52,7 @@ export default function About() {
             <span className="shimmer-text">Pure Life.</span>
           </h2>
           <p className="text-white/50 text-lg max-w-2xl mx-auto leading-relaxed">
-            RK Pure Aqua is built on a simple promise — delivering the purest, most refreshing water
+            RY Pure Aqua is built on a simple promise — delivering the purest, most refreshing water
             to every home and family in Chodavaram and beyond.
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function About() {
                   <span className="text-2xl">🏭</span>
                 </div>
                 <div>
-                  <p className="text-white font-display font-bold text-xl">RK Pure Aqua</p>
+                  <p className="text-white font-display font-bold text-xl">RY Pure Aqua</p>
                   <p className="text-aqua-400 text-sm">Chodavaram, AP 531036</p>
                 </div>
               </div>

@@ -126,7 +126,7 @@ export default function Features() {
               Our Quality <span className="gold-shimmer">Promise</span>
             </h3>
             <p className="text-white/60 leading-relaxed text-lg mb-8">
-              Every bottle of RK Pure Aqua carries our uncompromising commitment to purity.
+              Every bottle of RY Pure Aqua carries our uncompromising commitment to purity.
               We test every batch for over 50 quality parameters before it reaches your hands.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

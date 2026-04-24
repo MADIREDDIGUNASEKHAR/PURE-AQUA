@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full border-2 border-aqua-400/50 flex items-center justify-center">
-                <span className="font-display font-black text-aqua-300 text-sm">RK</span>
+                <span className="font-display font-black text-aqua-300 text-sm">RY</span>
               </div>
               <div>
                 <p className="font-display font-bold text-white">PURE AQUA</p>
@@ -70,7 +70,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/20 text-xs">
-            © 2025 RK Pure Aqua. All rights reserved.
+            © 2025 RY Pure Aqua. All rights reserved.
           </p>
           <p className="text-aqua-400/50 text-xs tracking-widest">
             PURE WATER. PURE LIFE. PURE AQUA. 💧

@@ -117,11 +117,11 @@ function BottleSVG({ size = "large", className = "" }) {
         SOLUTION
       </text>
 
-      {/* RK logo circle */}
+      {/* RY logo circle */}
       <circle cx="60" cy="204" r="11" fill="none" stroke="rgba(0,90,170,0.40)" strokeWidth="1" />
       <text x="60" y="208" textAnchor="middle" fontSize="7.5"
         fill="#0060a0" fontFamily="Georgia,serif" fontWeight="bold">
-        RK
+        RY
       </text>
 
       {/* ── Highlight strip ── */}

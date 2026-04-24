@@ -1,6 +1,6 @@
-# 💧 RK Pure Aqua — Landing Page
+# 💧 RY Pure Aqua — Landing Page
 
-A fully interactive MERN Stack + Tailwind CSS landing page for **RK Pure Aqua**, featuring stunning animations, smooth transitions, and a complete UI.
+A fully interactive MERN Stack + Tailwind CSS landing page for **RY Pure Aqua**, featuring stunning animations, smooth transitions, and a complete UI.
 
 ## 🚀 Quick Start
 
