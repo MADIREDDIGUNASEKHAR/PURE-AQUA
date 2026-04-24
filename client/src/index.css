@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0a1628;
+  --navy-light: #0d1f3c;
+  --aqua: #00aeff;
+  --aqua-light: #4dc9ff;
+  --gold: #c9a84c;
+  --white: #f0f8ff;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--aqua); border-radius: 3px; }
+
+/* Animated water gradient background */
+.water-bg {
+  background: linear-gradient(135deg, #0a1628 0%, #0d2444 30%, #0a3a5c 60%, #0a1628 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.water-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(0,174,255,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(0,174,255,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Glass card */
+.glass {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,174,255,0.2);
+}
+
+.glass-strong {
+  background: rgba(0,174,255,0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0,174,255,0.3);
+}
+
+/* Shimmer text */
+.shimmer-text {
+  background: linear-gradient(90deg, #00aeff 0%, #80daff 25%, #ffffff 50%, #80daff 75%, #00aeff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Gold shimmer */
+.gold-shimmer {
+  background: linear-gradient(90deg, #c9a84c 0%, #f0d080 50%, #c9a84c 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* Water wave SVG animation */
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+/* Bubble particles */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), rgba(0,174,255,0.1));
+  border: 1px solid rgba(0,174,255,0.3);
+  animation: bubble 4s ease-in-out infinite;
+}
+
+/* Glow button */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.btn-glow:hover::before {
+  transform: scale(1);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(0,174,255,0.5), 0 0 60px rgba(0,174,255,0.2);
+  transform: translateY(-2px);
+}
+
+/* Bottle SVG glow */
+.bottle-glow {
+  filter: drop-shadow(0 0 20px rgba(0,174,255,0.4)) drop-shadow(0 0 40px rgba(0,174,255,0.2));
+  animation: float 6s ease-in-out infinite;
+}
+
+.bottle-glow-sm {
+  filter: drop-shadow(0 0 15px rgba(0,174,255,0.3));
+  animation: float 8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Section reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav active link */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--aqua);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Card hover */
+.product-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(0,174,255,0.3);
+}
+
+/* Number counter */
+.counter-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* ── Missing keyframes (referenced via inline styles, not Tailwind utilities) ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dropIn {
+  0%   { transform: translateY(-60px) scale(0.5); opacity: 0; }
+  100% { transform: translateY(0)     scale(1);   opacity: 1; }
+}
+
+/* ══════════════════════════════════════════════════
+   LIGHT MODE
+   Toggle by adding  data-theme="light"  to the
+   root <div> in App.js
+   ══════════════════════════════════════════════════ */
+
+/* ── base ── */
+[data-theme="light"] body {
+  background-color: #e4f3ff;
+  color: #0a1628;
+}
+
+/* ── section backgrounds ── */
+[data-theme="light"] .water-bg {
+  background: linear-gradient(135deg, #dff0ff 0%, #c6e4ff 35%, #afd6ff 65%, #dff0ff 100%);
+}
+[data-theme="light"] .water-bg::before {
+  background: radial-gradient(ellipse at 20% 50%, rgba(0,110,200,0.13) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(0, 90,180,0.09) 0%, transparent 50%);
+}
+
+/* Contact section has an inline style override — match it */
+[data-theme="light"] section[id="contact"] {
+  background: linear-gradient(180deg, #c8dff5 0%, #dff0ff 100%) !important;
+}
+
+/* ── glass cards ── */
+[data-theme="light"] .glass {
+  background: rgba(255,255,255,0.72) !important;
+  backdrop-filter: blur(16px);
+  border-color: rgba(0,110,200,0.18) !important;
+}
+[data-theme="light"] .glass-strong {
+  background: rgba(255,255,255,0.88) !important;
+  backdrop-filter: blur(20px);
+  border-color: rgba(0,110,200,0.22) !important;
+}
+
+/* ── navbar ── */
+[data-theme="light"] nav {
+  background-color: rgba(255,255,255,0.9) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(0,80,180,0.1);
+  border-bottom: 1px solid rgba(0,110,200,0.12);
+}
+[data-theme="light"] nav .glass {
+  background: rgba(255,255,255,0.85) !important;
+}
+
+/* ── text: white → dark navy ── */
+[data-theme="light"] .text-white               { color: #0a1628 !important; }
+[data-theme="light"] [class*="text-white/8"]   { color: rgba(10,22,40,0.80) !important; }
+[data-theme="light"] [class*="text-white/7"]   { color: rgba(10,22,40,0.70) !important; }
+[data-theme="light"] [class*="text-white/6"]   { color: rgba(10,22,40,0.60) !important; }
+[data-theme="light"] [class*="text-white/5"]   { color: rgba(10,22,40,0.50) !important; }
+[data-theme="light"] [class*="text-white/4"]   { color: rgba(10,22,40,0.40) !important; }
+
+/* ── text: aqua tones (light blue → darker blue on light bg) ── */
+[data-theme="light"] [class*="text-aqua-2"],
+[data-theme="light"] [class*="text-aqua-3"]    { color: #0072b8 !important; }
+[data-theme="light"] [class*="text-aqua-4"]    { color: #005fa0 !important; }
+[data-theme="light"] [class*="text-aqua-5"]    { color: #0050a0 !important; }
+
+/* ── borders ── */
+[data-theme="light"] [class*="border-white"]   { border-color: rgba(10,22,40,0.12) !important; }
+
+/* ── shimmer — keep aqua but darker ── */
+[data-theme="light"] .shimmer-text {
+  background: linear-gradient(90deg, #005faa 0%, #007ecc 25%, #0099e8 50%, #007ecc 75%, #005faa 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+[data-theme="light"] .gold-shimmer {
+  background: linear-gradient(90deg, #a07010 0%, #c99830 50%, #a07010 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── form inputs ── */
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background: rgba(255,255,255,0.7) !important;
+  color: #0a1628 !important;
+}
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder { color: rgba(10,22,40,0.35) !important; }
+
+/* ── placeholders ── */
+[data-theme="light"] [class*="placeholder-white"] { color: rgba(10,22,40,0.35) !important; }
+
+/* ── product / feature cards ── */
+[data-theme="light"] .product-card:hover {
+  box-shadow: 0 20px 60px rgba(0,100,200,0.18);
+}
+
+/* ── bottle glow (softer on light bg) ── */
+[data-theme="light"] .bottle-glow {
+  filter: drop-shadow(0 0 20px rgba(0,110,210,0.35)) drop-shadow(0 0 40px rgba(0,90,190,0.18));
+}
+[data-theme="light"] .bottle-glow-sm {
+  filter: drop-shadow(0 0 15px rgba(0,110,210,0.28));
+}
+
+/* ── glow orbs become lighter circles ── */
+[data-theme="light"] [class*="bg-aqua-5"][class*="blur"] { opacity: 0.4; }
+[data-theme="light"] [class*="bg-aqua-6"][class*="blur"] { opacity: 0.3; }
+
+/* ── scrollbar ── */
+[data-theme="light"] ::-webkit-scrollbar-track { background: #cde8ff; }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: #0090d9; }
+
+/* Water drop cursor trail */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--aqua);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+/* Input focus styles */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--aqua) !important;
+  box-shadow: 0 0 0 3px rgba(0,174,255,0.15);
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Floating particles */
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.4; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,174,255,0.3);
+  animation: floatParticle linear infinite;
+}
